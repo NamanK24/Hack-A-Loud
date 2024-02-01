@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HACK-A-LOUD</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/main.css" />
+
+</head>
+
+<body class="bg-color-primary-dark text-color-white tracking-wider">
+    <header class="sticky top-0 z-50">
+        <nav class="container flex justify-between items-center">
+            <div class="text-color-secondary font-bold text-3xl">
+                <a href="index.html">
+                    <img class="h-25 w-44" src="./img/GDSC_logo_final.png" alt="">
+                </a>
+            </div>
+            <div>
+                <ul class="hidden lg:flex items-center space-x-6">
+                    <li>
+                        <img class="h-25 w-44" src="./img/cisco-png-logo-3775.png" alt="">
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Mobile screen  -->
+            <div id="hamburger" class="lg:hidden cursor-pointer z-50">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+
+            <div id="menu" class="hidden bg-color-primary-dark h-[100vh] absolute inset-0">
+                <!-- <ul class="h-full grid place-items-center py-20">
+          <li>
+            <a id="hLink" href="#home" class="hover:text-color-secondary ease-in duration-200">Submit</a>
+          </li>
+        </ul> -->
+            </div>
+        </nav>
+    </header>
+
+    <!-- home section-->
+
+    <section id="contact" class="bg-color-primary-dark">
+        <div class="container py-10">
+    
+            <div class="text-center m-auto mb-20 md:w-1/2">
+                <!-- <h4 class="font-bold text-color-secondary mb-4">
+                    Have A Questation
+                </h4> -->
+                <h1 class="title">Before submitting your project please make sure 
+                    all the submission criterias are fulfilled. You can find the submission criterias 
+                    <a href="https://docs.google.com/presentation/d/1TCjqoWnLP5I6pXovs7JcD-RofAXxgyGaf1lxKDohHKQ/edit#slide=id.p1">
+                        <span class="gtext">here</span>.
+                    </a>
+                </h1>
+            </div>
+    
+            <form name="submit-to-google-sheet">
+                <div class="w-full m-auto text-center md:w-2/3">
+                    <div class="text-color-primary-dark grid gap-6 mb-6 md:grid-cols-2">
+                        <input type="text"
+                            name ="Team Leader name" 
+                            class="bg-gray-50 border border-gray-300 text-sm rounded-lg block w-full p-3 focus:outline-none focus:border-color-secondary"
+                            placeholder="Team leader's name"
+                            required />
+    
+                        <input type="email"
+                            name="email"
+                            class="bg-gray-50 border border-gray-300 text-sm rounded-lg block w-full p-3 focus:outline-none focus:border-color-secondary"
+                            placeholder="Email"
+                            required />
+    
+                        <input type="tel"
+                            name="phone "
+                            class="bg-gray-50 border border-gray-300 text-sm rounded-lg block w-full p-3 focus:outline-none focus:border-color-secondary"
+                            placeholder="Phone"
+                            required />
+    
+                        <input type="url"
+                            name="github link"
+                            class="bg-gray-50 border border-gray-300 text-sm rounded-lg block w-full p-3 focus:outline-none focus:border-color-secondary"
+                            placeholder="github link" 
+                            required/>
+                    </div>
+                    <input type="text"
+                        name="idea statement"
+                        class="text-color-primary-dark bg-gray-50 border border-gray-300 text-sm rounded-lg block w-full p-3 focus:outline-none focus:border-color-secondary"
+                        placeholder="idea statement"
+                        required>
+                    </input>
+                    <br>
+                    <textarea rows="4"
+                        name="feedbacks"
+                        class="text-color-primary-dark bg-gray-50 border border-gray-300 text-sm rounded-lg block w-full p-3 focus:outline-none focus:border-color-secondary"
+                        placeholder="Any feedbacks for us"
+                        required>
+                    </textarea>
+    
+                    <button class="btn mt-10">SUBMIT</button>
+                    <br>
+                    <br>
+                    <span id="msg" class="text-center"></span>
+                </div>
+            </form>
+
+            
+        </div>
+    </section>
+
+        <!-- footer section -->
+
+        <section id="footer">
+            <div class="flex justify-center pt-5 pb-3">
+                <p>2024 &copy; Made by Naman Kumar</p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const navbar = document.querySelector("header");
+
+        const sectionn = document.querySelectorAll("section");
+        const navlinkss = document.querySelectorAll("nav ul li a");
+
+        window.onscroll = () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add("bg-color-primary-dark");
+                navbar.classList.add("border-b");
+                navbar.classList.add("border-color-gray");
+            } else {
+                navbar.classList.remove("bg-color-primary-dark");
+                navbar.classList.remove("border-b");
+                navbar.classList.remove("border-color-gray");
+            }
+
+            // active link
+            let current = "home";
+
+            sectionn.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 60) {
+                    current = section.getAttribute("id");
+                }
+            });
+            navlinkss.forEach((item) => {
+                item.classList.remove("text-color-secondary");
+                if (item.href.includes(current)) {
+                    item.classList.add("text-color-secondary");
+                }
+            });
+        };
+
+        // Mobile menu
+        const hamburger = document.querySelector("#hamburger");
+        const menu = document.querySelector("#menu");
+        const hLink = document.querySelectorAll("#hLink");
+        const faSolid = document.querySelector(".fa-solid");
+
+        hamburger.addEventListener("click", () => {
+            menu.classList.toggle("hidden");
+            faSolid.classList.toggle("fa-xmark");
+        });
+
+        hLink.forEach((link) => {
+            link.addEventListener("click", () => {
+                menu.classList.toggle("hidden");
+                faSolid.classList.toggle("fa-xmark");
+            });
+        });
+    </script>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzs3cYmx0A913enS5vLWzMJ_ENVtSYSLs4YMQgspuK5F7vwPjznZoChtjZaK8AicurdOg/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msg = document.getElementById("msg")
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                    msg.innerHTML = "Form Submitted Successfully!"
+                    setTimeout(function(){
+                        msg.innerHTML = ""
+                    },50)
+                    form.reset();
+                })
+                .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+
+</body>
+
+</html>
