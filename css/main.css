@@ -12,6 +12,11 @@
   /* 2 */
 }
 
+
+.ftr{
+  padding-top: 500px;
+}
+
 .bgimg{
   background-image: url("img/background2.png");
   background-position: center;
