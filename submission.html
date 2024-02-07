@@ -55,11 +55,11 @@
                 </h4> -->
                 <h1 class="title">Before submitting your project please make sure 
                     all the submission criterias are fulfilled. You can find the submission criterias 
-                    <a href="https://docs.google.com/presentation/d/1TCjqoWnLP5I6pXovs7JcD-RofAXxgyGaf1lxKDohHKQ/edit#slide=id.p1">
+                    <a href="https://docs.google.com/presentation/d/1TCjqoWnLP5I6pXovs7JcD-RofAXxgyGaf1lxKDohHKQ/edit#slide=id.p1" target="_blank">
                         <span class="gtext">here</span>.
-                        <br>
-                        (Make sure to do only one submission per team)
                     </a>
+                    <br>
+                    (Make sure to do only one submission per team)
                 </h1>
             </div>
     
@@ -94,11 +94,19 @@
                         placeholder="Idea Statement" required>
                     </input>
                     <br>
+                    <!-- <input type="file" name="Presentation"
+                        class="text-color-primary-dark bg-gray-50 border border-gray-300 text-sm rounded-lg block w-full p-3 focus:outline-none focus:border-color-secondary"
+                        placeholder="Project Presentation" required>
+                    </input>
+                    <br> -->
                     <input type="text" name="feedback"
                         class="text-color-primary-dark bg-gray-50 border border-gray-300 text-sm rounded-lg block w-full p-3 focus:outline-none focus:border-color-secondary"
                         placeholder="Feedback" required>
                     </input>
-                    <button class="btn mt-10">SUBMIT</button>
+                    <button class="btn mt-10">
+                        SUBMIT
+                    </button>
+                    
                     <br>
                     <br>
                     <span id="msg" class="text-center"></span>
@@ -153,6 +161,7 @@
                 })
                 .catch(error => console.error('Error!', error.message))
     </script>
+
 
 </body>
 
